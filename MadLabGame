@@ -1,0 +1,20 @@
+
+#ask user a question
+def get_input(word_type):
+  user_input: str = input(f"Enter a {word_type}: ")
+  return user_input
+
+#word type variables 
+food = get_input("food")
+
+name = get_input("name")
+adjective = get_input("adjective")
+verb1 = get_input("verb1")
+verb2 = get_input("verb2")
+verb3 = get_input("verb3")
+noun = get_input("noun")
+
+story = f"""
+It was ___{food}___ day at school, and ___{name}___ was super ___{adjective}___ for lunch. But when she went outside to eat, a ___{noun}___ stole her ___{food}___! ___{name}___ chased the ___{noun}___ all over school. She ___{verb1}___, ___{verb2}___, and ___{verb3}___ through the playground. Then she tripped on her ___{noun}___ and the ___{noun}___ escaped! Luckily, ___{name}___’s friends were willing to share their ___{food}___ with her.
+"""
+print(story)
