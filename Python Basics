@@ -1,0 +1,34 @@
+import statistics
+import random
+import math
+
+#1.) part A --------------------------
+# list of 20 elements
+lst = []
+sum = 0
+
+# random integers (50,100)
+for n in range(20): # make 1 liner
+  lst.append(random.randint(50,100)) 
+
+# sort and print results
+lst.sort()
+print('Generated list:',lst)
+
+# calculate the sum of even indices
+for index,even in enumerate(lst):
+  if index % 2 == 0:
+    sum += even
+
+print('Sum of even indices:' ,sum)
+
+#Part B ------------------------------
+# find the mean, median, std. dev.
+print('\nMean: %.2f' % statistics.mean(lst)) 
+print('Standard deviation: %.2f' % statistics.stdev(lst))
+print('Median: %.2f' % statistics.median(lst))
+
+# 2-based logarithm values of the list
+print('\n2-Based logarithm values:')
+for num in lst:
+  print("%.2f" % math.log2(num))
