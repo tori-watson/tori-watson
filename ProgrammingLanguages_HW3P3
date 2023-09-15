@@ -1,0 +1,28 @@
+(defvar lst ())
+  (dotimes (k 20)
+  (setq lst
+  (append lst (list (+ 50 (random 50))))))
+  (print lst)
+
+(defun swap (lst j k)
+  (let ((tmp (nth j lst)))
+  (setf (nth j lst) (nth k lst))
+  (setf (nth k lst) tmp))
+  lst)
+
+(defun bubble-sort (lst)
+  (dotimes (idx (- (list-length lst) 1))
+  (loop for i from (+ idx 1) to (- (list-length lst) 1)
+  do
+  (if (< (nth i lst) (nth idx lst))
+  (setf lst (swap lst idx i)))))
+  lst)
+
+(setf lst (bubble-sort lst))
+(print lst)
+
+(defvar sum 0)
+(loop for i from 0 to (- (list-length lst) 1) by 2 do (setq sum(+ i (nth i lst))))
+
+(print sum)
+
