@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+int g = 0;
+
+class parent {
+private:
+  void foo()     { g++; cout << g * 2 << endl; }
+protected:
+  int fun(int n) { return n > 0 ? n + fun(n-1) : 0;}
+public:
+  /*parent(){ //runs both parent an dchild const
+    cout << "parent cons" << endl;
+  }*/
+  void test()    { foo(); cout << g + 1 << endl; }
+  //~parent() {g++; cout << "parent dest" << endl << g * g << endl;}
+};
+
+class child : public parent {
+public:
+  //void fun(int n) {cout <<"fun here";} --> why is that an issue?
+  child () {
+    //foo();//ERROR - foo of parent class is private
+    cout << fun(5) << endl; 
+    test(); 
+  }
+  ~child() {g++; cout << g * g << endl;}
+};
+
+int main() {
+  child *p = new child;
+  //p->foo( ); //ERROR - p can't access parent's foo because it's private
+  //p->fun(5); //ERROR - fun is a protected function and only the parent and derived classs can access it
+  p->test();
+  delete p;
+  return 0;
+}
