@@ -10,7 +10,7 @@ def query_finder(query,doc):
   query_name = query.split()
   new_doc = doc.split()
   
-  # match query words with doc title's
+  # match query words with doc titles
   for q in query_name:
     for d in new_doc:
       if q.lower() == d.lower():
