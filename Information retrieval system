@@ -1,0 +1,32 @@
+print('\n\nPROB. 2: Information retrieval system\n')
+query = "machine learning"
+print(f'QUERY NAME: {query}\n')
+docs = ["learning English, learning French, learning Spanish","machine learning, statistical learning, and deep learning", "PYTHON PROGRAMMING FOR FUN", "Computing Machine and Sewing Machine"]
+
+def query_finder(query,doc):
+  query_match = 0
+  
+  # split query and doc by individual words
+  query_name = query.split()
+  new_doc = doc.split()
+  
+  # match query words with doc title's
+  for q in query_name:
+    for d in new_doc:
+      if q.lower() == d.lower():
+        # add 1 pt per match
+        query_match += 1
+        #print(q,d) #TEST-->printing matching values
+        break
+  return query_match
+
+# split grop docs into sections
+for doc_title_group in docs:
+  new_docs = doc_title_group.split(', ')
+  new_docs = doc_title_group.split(' and ')
+  new_docs = doc_title_group.split(', and ')
+  print(f'DOC TITLES: {new_docs} \n') #TEST--->printing individual doc group
+  for i, doc in enumerate(new_docs):
+    print('Individual doc: ', doc)
+    print(f'DOC {i+1} Matching Score: {query_finder(query,doc)}')
+  print('\n')
