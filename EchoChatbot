@@ -1,1 +1,12 @@
-007427
+# a chatbot is a piece of software designed to conduct a conversation or dialog
+
+# Welcome user
+print('Welcome to Echo Chatbot!')
+print("""The chatbot will repeat what you say.
+""")
+
+# Prompt user
+stuff_to_echo = input("Enter a response: ")
+
+# Print user's response
+print('You said: ' + stuff_to_echo)
