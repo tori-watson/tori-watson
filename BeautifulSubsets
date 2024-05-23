@@ -1,0 +1,42 @@
+class Solution:
+    def beautifulSubsets(self, nums: List[int], k: int) -> int:
+    # divide into subsets
+    # check if subset has absolute values
+        n = len(nums)
+        beauList = []
+        total_beau = 0
+        start = 0
+
+        def absoluteDiff(lst, start, k): # find the abs diff btwn subsets, then omit the subset if absDiff == k
+            if start == n: return False
+
+            for end in range(start + 1, len(lst)):
+                print(lst, lst[start], lst[end])
+                if abs(lst[start] - lst[end]) == k:
+                    print('delete here')
+                    return False
+                else: 
+                    print('here?')
+                    return True
+
+        for i in range(2**n):# number
+            subset = []
+        
+            for j in range(n):
+                if i & (2**j):
+                    subset.append(nums[j])
+            #beauList.append(subset)
+            print(subset)
+            print('here!!')
+            subset.sort()
+            if absoluteDiff(subset, start, k) is True:
+                print('here!')
+                beauList.append(subset)
+                total_beau += 1
+            elif (subset is None) or (len(subset) == 1):
+                beauList.append(subset)
+                total_beau += 1
+            
+
+        print(beauList)
+        return total_beau        
