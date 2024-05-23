@@ -1,0 +1,23 @@
+class Solution:
+    def partition(self, s: str) -> List[List[str]]:
+        # check if same front and back
+        # partion each character and compare front and back
+        n = len(s)
+        def palindrome(sub: str) -> bool:
+            return sub == sub[::-1] # compares from the front and back of the string
+        
+        def backtrack(start, path):
+            if start == n: # if at the end of string
+                result.append(path[:])
+
+            for end in range(start + 1, n + 1):
+                if palindrome(s[start:end]): # 1st iter --> start = 0, end = 1
+                    backtrack(end, path + [s[start:end]]) # end = 1, path --> [] + s[0,1] --> path = a
+
+        result = []        
+        backtrack(0, [])
+        return result
+
+            # 1st iter --> start = 0, end = 1
+            # 2nd iter -->           start = 1, path ['a'] (end = 2, palin)s[]
+            # 3rd iter -->           
