@@ -1,0 +1,15 @@
+class Solution:
+    def singleNumber(self, nums: List[int]) -> List[int]:
+        #result array of unique numbers
+        result = []
+
+        #loop through list
+        for target in nums: #check value one by one
+            occurence = 0
+            for num in nums: #check through all values
+                if target == num: #check when numbers have occured
+                    occurence += 1 #add 1 to the index of the array
+            if occurence == 1: 
+                result.append(target) #if target has only occured once, add to result array
+
+        return result
