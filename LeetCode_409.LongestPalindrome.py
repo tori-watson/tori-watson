@@ -27,3 +27,5 @@ class Solution:
                 odd += 1
         if odd:#if odd occurence value > 1, add 1 to result --> "length"
             length += 1
+
+        return length
